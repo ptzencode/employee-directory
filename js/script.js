@@ -9,10 +9,18 @@ $(document).ready(function(){
     };
     let fullItemsList = [];
 
+    //process data from API
     let displayItems = function(data){
         fullItemsList = data.results;
         console.log(fullItemsList);
-        $.each(fullItemsList,function(index,item){
+        showItemsInGallery(fullItemsList);
+    };
+
+    $.getJSON(randomUserAPIurl, options, displayItems);
+
+    //display items in gallery
+    function showItemsInGallery(itemsList){
+        $.each(itemsList,function(index,item){
           let $itemCard = $(`<div class="card">
                               <div class="card-img-container">
                                 <img class="card-img" src="${item.picture.large}" alt="profile picture">
@@ -24,10 +32,6 @@ $(document).ready(function(){
                                </div>
                               </div>`);
           gallery.append($itemCard);
-
         });
-    };
-
-    $.getJSON(randomUserAPIurl, options, displayItems);
-
+    }
 });
