@@ -75,6 +75,7 @@ $(document).ready(function(){
             //add click handler for buttons
             $('#modal-prev').click(showPrev);
             $('#modal-next').click(showNext);
+            $('#modal-close-btn').click(closeModal);
         }
 
         //show prev item
@@ -91,6 +92,11 @@ $(document).ready(function(){
            indexOfCurrentItem += 1;
            updateModalDisplay();
           }
+        }
+
+        //close modal
+        function closeModal(){
+          $('div.modal-container').remove();
         }
 
         updateModalDisplay();
