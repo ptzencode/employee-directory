@@ -72,6 +72,12 @@ $(document).ready(function(){
             let itemToShow = currentList[indexOfCurrentItem];
             let $modalContainer = showItemDetails(itemToShow);
             $('body').append($modalContainer);
+            //hide prev btn at beginning & hide next btn at end
+            if(indexOfCurrentItem === 0){
+                $('#modal-prev').hide();
+            } else if(indexOfCurrentItem === currentList.length -1) {
+                $('#modal-next').hide();
+            }
             //add click handler for buttons
             $('#modal-prev').click(showPrev);
             $('#modal-next').click(showNext);
