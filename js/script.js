@@ -38,6 +38,31 @@ $(document).ready(function(){
         });
     }
 
+    //create modal to display item details
+    function showItemDetails(itemToShow){
+        let $modalContainer = $(`<div class="modal-container">
+                                    <div class="modal">
+                                        <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
+                                        <div class="modal-info-container">
+                                            <img class="modal-img" src="${itemToShow.picture.large}" alt="profile picture">
+                                            <h3 id="name" class="modal-name cap">${itemToShow.name.first} ${itemToShow.name.last}</h3>
+                                            <p class="modal-text">${itemToShow.email}</p>
+                                            <p class="modal-text cap">${itemToShow.location.city}</p>
+                                            <hr>
+                                            <p class="modal-text">${itemToShow.phone}</p>
+                                            <p class="modal-text cap">${itemToShow.location.street}, ${itemToShow.location.state} ${itemToShow.location.postcode}</p>
+                                            <p class="modal-text">Birthday: ${new Date(itemToShow.dob.date).getMonth() + 1}/${new Date(itemToShow.dob.date).getDate()}/${new Date(itemToShow.dob.date).getFullYear()}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-btn-container">
+                                        <button type="button" id="modal-prev" class="modal-prev btn">Prev</button>
+                                        <button type="button" id="modal-next" class="modal-next btn">Next</button>
+                                    </div>
+                            </div>`);
+        return $modalContainer;
+    }
+
     //display details for item on click
     gallery.on("click","div.card",function(){
         let indexOfCurrentItem = $('div.card').index(this);
