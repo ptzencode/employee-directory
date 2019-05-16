@@ -8,6 +8,7 @@ $(document).ready(function(){
         nat: "us,gb,ca"
     };
     let fullItemsList = [];
+    let currentList = [];
 
     //process data from API
     let displayItems = function(data){
@@ -20,6 +21,8 @@ $(document).ready(function(){
 
     //display items in gallery
     function showItemsInGallery(itemsList){
+        //store items to be displayed
+        currentList = itemsList;
         $.each(itemsList,function(index,item){
           let $itemCard = $(`<div class="card">
                               <div class="card-img-container">
@@ -34,4 +37,13 @@ $(document).ready(function(){
           gallery.append($itemCard);
         });
     }
+
+    //display details for item on click
+    gallery.on("click","div.card",function(){
+        let indexOfCurrentItem = $('div.card').index(this);
+        let itemToShow = currentList[indexOfCurrentItem];
+        let $modalContainer = showItemDetails(itemToShow);
+        $('body').append($modalContainer);
+    });
+
 });
