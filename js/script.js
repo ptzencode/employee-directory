@@ -72,6 +72,25 @@ $(document).ready(function(){
             let itemToShow = currentList[indexOfCurrentItem];
             let $modalContainer = showItemDetails(itemToShow);
             $('body').append($modalContainer);
+            //add click handler for buttons
+            $('#modal-prev').click(showPrev);
+            $('#modal-next').click(showNext);
+        }
+
+        //show prev item
+        function showPrev(){
+          if(indexOfCurrentItem !== 0){
+            indexOfCurrentItem -= 1;
+            updateModalDisplay();
+          }
+        }
+
+        //show next item
+        function showNext(){
+          if(indexOfCurrentItem !== currentList.length -1){
+           indexOfCurrentItem += 1;
+           updateModalDisplay();
+          }
         }
 
         updateModalDisplay();
