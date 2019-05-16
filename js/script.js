@@ -66,9 +66,16 @@ $(document).ready(function(){
     //display details for item on click
     gallery.on("click","div.card",function(){
         let indexOfCurrentItem = $('div.card').index(this);
-        let itemToShow = currentList[indexOfCurrentItem];
-        let $modalContainer = showItemDetails(itemToShow);
-        $('body').append($modalContainer);
+
+        function updateModalDisplay(){
+            $('div.modal-container').remove();
+            let itemToShow = currentList[indexOfCurrentItem];
+            let $modalContainer = showItemDetails(itemToShow);
+            $('body').append($modalContainer);
+        }
+
+        updateModalDisplay();
+
     });
 
 });
