@@ -109,4 +109,17 @@ $(document).ready(function(){
 
     });
 
+    //add Search Feature for Gallery
+    function addSearch(){
+        let $searchContainer = $(`<div class="search-container">
+                                    <form action="#" method="get">
+                                      <input type="search" id="search-input" class="search-input" placeholder="Enter Name...">
+                                      <input type="submit" value="Search" id="search-submit" class="search-submit">
+                                    </form>
+                                  </div>`);
+        $('div.header-inner-container').append($searchContainer);
+        $('#search-submit').click(searchGallery);
+    }
+    addSearch();
+
 });
