@@ -23,6 +23,9 @@ $(document).ready(function(){
     function showItemsInGallery(itemsList){
         //store items to be displayed
         currentList = itemsList;
+        //clear any previous items in gallery
+        gallery.empty();
+        //create new display with current list
         $.each(itemsList,function(index,item){
           let $itemCard = $(`<div class="card">
                               <div class="card-img-container">
@@ -144,6 +147,10 @@ $(document).ready(function(){
                     matchingItems.push(item);
                 }
             });
+            //show search results in gallery
+            if(matchingItems.length > 0){
+                showItemsInGallery(matchingItems);
+            }
 
         }
     }
