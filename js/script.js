@@ -122,4 +122,13 @@ $(document).ready(function(){
     }
     addSearch();
 
+    //search gallery
+    function searchGallery(e){
+        e.preventDefault();
+        let $searchBtn = $('#search-submit');
+        let $input = $('#search-input');
+
+        let searchInput = $input.val().toLowerCase();
+        let matchingItems = [];
+    }
 });
