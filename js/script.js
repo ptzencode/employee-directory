@@ -130,5 +130,21 @@ $(document).ready(function(){
 
         let searchInput = $input.val().toLowerCase();
         let matchingItems = [];
+        //process search for input value
+        if(searchInput !== ''){
+            $searchBtn.attr('value','Show All');
+            $searchBtn.addClass('reset');
+            $input.val('');
+            $input.attr('placeholder','')
+            $input.prop('disabled',true);
+
+            $.each(fullItemsList,function(index,item){
+                let itemName = `${item.name.first.toLowerCase()} ${item.name.last.toLowerCase()}`;
+                if(itemName.includes(searchInput)){
+                    matchingItems.push(item);
+                }
+            });
+
+        }
     }
 });
