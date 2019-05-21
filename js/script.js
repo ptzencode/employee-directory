@@ -150,6 +150,10 @@ $(document).ready(function(){
             //show search results in gallery
             if(matchingItems.length > 0){
                 showItemsInGallery(matchingItems);
+            } else if(matchingItems.length === 0) {
+                let $noMatchFound = $(`<h2 class="no-match cap">no matching results found !</h2>`);
+                gallery.empty();
+                gallery.append($noMatchFound);
             }
 
         }
