@@ -131,6 +131,16 @@ $(document).ready(function(){
         let $searchBtn = $('#search-submit');
         let $input = $('#search-input');
 
+        //Reset display to Show All
+        if($searchBtn.hasClass('reset')){
+            $searchBtn.attr('value','Search');
+            $searchBtn.removeClass('reset');
+            $input.val('');
+            $input.attr('placeholder','Enter Name...')
+            $input.prop('disabled',false);
+            showItemsInGallery(fullItemsList);
+        }
+
         let searchInput = $input.val().toLowerCase();
         let matchingItems = [];
         //process search for input value
