@@ -17,7 +17,10 @@ $(document).ready(function(){
         showItemsInGallery(fullItemsList);
     };
 
-    $.getJSON(randomUserAPIurl, options, displayItems);
+    $.getJSON(randomUserAPIurl, options, displayItems)
+     .fail(function(jqXHR) {
+        console.log( "Request failed: " + jqXHR.statusText + ", " +  jqXHR.status);
+      });
 
     //display items in gallery
     function showItemsInGallery(itemsList){
