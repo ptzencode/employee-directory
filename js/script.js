@@ -13,7 +13,6 @@ $(document).ready(function(){
     //process data from API
     let displayItems = function(data){
         fullItemsList = data.results;
-        console.log(fullItemsList);
         showItemsInGallery(fullItemsList);
     };
 
